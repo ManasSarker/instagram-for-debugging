@@ -124,8 +124,10 @@ const createPost = (post) => {
                     </a>
 
                     <span>Liked by
-                      <a class="post__name--underline" href="#">user123</a> and
-                      <a href="#">73 others</a></span>
+                      <a class="post__name--underline" href="#">${
+                        post.comments[0].user
+                      }</a> and
+                      <a href="#">${post.id}3 others</a></span>
                   </div>
 
                   <hr/>
@@ -157,6 +159,7 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+  document.getElementById("liked").textContent = "";
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("liked").appendChild(div);
